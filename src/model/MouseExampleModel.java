@@ -63,9 +63,9 @@ public class MouseExampleModel {
 		this.count++;
 	}
 	public void enter() {
-		
+		this.checkIn = "yes";
 	}
 	public void exist() {
-		
+		this.checkIn = "no";
 	}
 }

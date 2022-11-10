@@ -2,10 +2,11 @@ package controller;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import view.ExampleView;
 
-public class MouseExampleCotroller implements MouseListener{
+public class MouseExampleCotroller implements MouseListener, MouseMotionListener{
 
 	private ExampleView exampleView;
 	
@@ -16,13 +17,12 @@ public class MouseExampleCotroller implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		this.exampleView.increaseClick();
+		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		this.exampleView.increaseClick();		
 	}
 
 	@Override
@@ -33,14 +33,30 @@ public class MouseExampleCotroller implements MouseListener{
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		this.exampleView.enter();
+		int x = e.getX();
+		int y = e.getY();
+		this.exampleView.updateXY(x,y);
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		this.exampleView.exist();
+		
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e) {
+	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		int x = e.getX();
+		int y = e.getY();
+		this.exampleView.updateXY(x,y);
 	}
 	
 }

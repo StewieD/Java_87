@@ -39,6 +39,7 @@ public class ExampleView extends JFrame {
 		jPanel_Mouse = new JPanel();
 		jPanel_Mouse.setBackground(Color.LIGHT_GRAY);
 		jPanel_Mouse.addMouseListener(mouseExampleCotroller);
+		jPanel_Mouse.addMouseMotionListener(mouseExampleCotroller);
 		
 		jPanel_Info = new JPanel();
 		jPanel_Info.setLayout(new GridLayout(3,3,5,5));
@@ -75,9 +76,18 @@ public class ExampleView extends JFrame {
 		this.jLabel_count_value.setText(this.mouseExampleModel.getCount()+"");
 	}
 	public void enter() {
-		
+		this.mouseExampleModel.enter();
+		this.jLabel_check_in_value.setText(this.mouseExampleModel.getCheckIn());
 	}
 	public void exist() {
-		
+		this.mouseExampleModel.exist();
+		this.jLabel_check_in_value.setText(this.mouseExampleModel.getCheckIn());
+	}
+
+	public void updateXY(int x, int y) {
+		this.mouseExampleModel.setX(x);
+		this.mouseExampleModel.setY(y);
+		this.jLabel_x.setText("x= "+mouseExampleModel.getX());
+		this.jLabel_y.setText("y= "+mouseExampleModel.getY());
 	}
 }
